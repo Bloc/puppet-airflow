@@ -8,7 +8,7 @@ Environment="AIRFLOW_HOME=<%= scope['airflow::home_folder'] %>"
 User=<%= scope['airflow::user'] %>
 Group=<%= scope['airflow::group'] %>
 Type=simple
-ExecStart=/bin/airflow flower
+ExecStart=/usr/local/bin/airflow flower
 KillMode=process
 Restart=on-failure
 RestartSec=15s
