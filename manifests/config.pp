@@ -18,12 +18,13 @@ class airflow::config inherits airflow {
   }
   # Create airflow base home folders
   file { $airflow::home_folder:
-    ensure  => directory,
-    owner   => $airflow::user,
-    group   => $airflow::group,
-    mode    => $airflow::folders_mode,
-    require => Python::Pip[$airflow::package_name],
-    recurse => true
+    ensure       => directory,
+    owner        => $airflow::user,
+    group        => $airflow::group,
+    mode         => $airflow::folders_mode,
+    require      => Python::Pip[$airflow::package_name],
+    recurse      => true,
+    recurselimit => 2,
   }
   # Create airflow folders
   $airflow_folders =
